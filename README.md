@@ -1,7 +1,3 @@
-Here's a draft for your README file, covering setup, usage, and main features for the recycling detection system:
-
----
-
 # Recycling Detection System with Leaderboard
 
 This project is a recycling detection system with a leaderboard that encourages users to recycle by assigning points for recycled items. Each user has a unique QR code, and the points accumulated are stored and displayed on a leaderboard. The backend is built in Python and MongoDB Atlas is used as the database.
