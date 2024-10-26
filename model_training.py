@@ -1,9 +1,9 @@
 import os
 import pandas as pd 
 import numpy as np 
-import cv2 
 import tensorflow as tf
 import random
+import keras
 
 from keras.layers import Conv2D, MaxPooling2D , BatchNormalization ,Dropout ,Flatten , Dense , Input , Rescaling , Resizing
 from keras.models import Sequential
@@ -115,6 +115,8 @@ history = Model.fit(trainGenerator,
                                        patience=4,
                                        monitor='val_accuracy',
                                        restore_best_weights=True)])
+
+Model.save('trained_model/trained_model.keras')
 
 test_loss, test_accuracy = Model.evaluate(testGenerator)
 print(test_accuracy)
