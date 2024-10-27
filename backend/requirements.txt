@@ -3,6 +3,7 @@ Flask_Cors==5.0.0
 protobuf==5.28.3
 pymongo==4.10.1
 python-dotenv==1.0.1
-google
+google-auth
 gunicorn
-google.oauth2
+
+
