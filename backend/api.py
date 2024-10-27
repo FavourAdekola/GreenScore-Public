@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
         "origins": [
-            "https://your-app.pages.dev",  # Your Cloudflare Pages domain
+            "https://greenscore.pages.dev",  # Your Cloudflare Pages domain
             "http://localhost:3000"        # Local development
         ],
         "methods": ["GET", "POST", "OPTIONS"],
