@@ -10,9 +10,6 @@ const UserDashboard = ({ user }) => {
     const [points, setPoints] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
-    console.log("This is the User Dashboard user information:", user)
-    console.log("In specific, user google id", user.google_id, user._id)
-
     useEffect(() => {
         const fetchPoints = async () => {
             try {
@@ -53,7 +50,7 @@ const UserDashboard = ({ user }) => {
         <div>
             <h2>Welcome, {user.name}!</h2>
             <p>Your Points: {points}</p>
-            <QRCodePopup QRId={user._id}/>
+            <QRCodePopup QRId={user.google_id}/>
             {/* Example buttons for testing */}
             <button 
                 onClick={() => handleRecycleItem()}

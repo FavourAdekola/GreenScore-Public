@@ -31,7 +31,6 @@ const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
         });
         
         const data = await backendResponse.json();
-        console.log(userInfo);
         console.log('Signed in user:', data);
         
         // Update both localStorage and parent component's state
