@@ -1,0 +1,85 @@
+/* QRCodePopup.css */
+
+.qr-button {
+
+}
+
+.qr-button:hover {
+
+}
+
+.qr-overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+}
+
+.qr-modal {
+background-color: white;
+border-radius: 8px;
+padding: 24px;
+max-width: 400px;
+width: 90%;
+position: relative;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qr-close-button {
+position: absolute;
+top: 8px;
+right: 8px;
+background: none;
+border: none;
+font-size: 24px;
+color: #666;
+cursor: pointer;
+padding: 4px 8px;
+line-height: 1;
+}
+
+.qr-close-button:hover {
+color: #333;
+}
+
+.qr-content {
+text-align: center;
+}
+
+.qr-title {
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 16px;
+color: #333;
+}
+
+.qr-code-wrapper {
+
+}
+
+.qr-alert {
+background-color: #f3f4f6;
+border: 1px solid #e5e7eb;
+border-radius: 6px;
+padding: 12px;
+color: #374151;
+font-size: 14px;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 480px) {
+.qr-modal {
+    width: 95%;
+    padding: 16px;
+}
+
+.qr-title {
+    font-size: 18px;
+}
+}
