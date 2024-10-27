@@ -46,7 +46,7 @@ const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
   });
 
   return (
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
       <div className="flex justify-center items-center p-4">
         <button
           onClick={() => login()}
