@@ -10,7 +10,7 @@ model = tf.keras.models.load_model('trained_model/trained_model.keras')
 
 IMG_SIZE = (224, 224)
 PREDICTION_INTERVAL = 5
-FLASH_DURATION = 1
+FLASH_DURATION = 1.5
 
 last_flash_time = 0
 curr_user = ""
@@ -98,6 +98,7 @@ while cap.isOpened():
     # check if there is a QRCode in the image 
     if data and bbox is not None: 
         curr_user = str(data)
+        print("User Changed")
     
     cv.imshow("Webcam Feed", frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
