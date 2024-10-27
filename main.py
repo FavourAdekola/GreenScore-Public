@@ -3,6 +3,7 @@ import tensorflow as tf
 import numpy as np
 import time
 import webbrowser
+import requests
 
 
 model = tf.keras.models.load_model('trained_model/trained_model.keras')
@@ -13,6 +14,20 @@ FLASH_DURATION = 1
 
 last_flash_time = 0
 curr_user = ""
+
+def add_points():
+    if curr_user != "":
+        response = requests.get("https://greenscore.onrender.com/api/user/" + curr_user + "/points")
+    
+
+    # Post Request for user points to be updates
+    curr_points = response.json()
+    curr_points['points'] += 1
+    
+    response = requests.post("https://greenscore.onrender.com/api/user/" + curr_user + "/points", json={'points' : curr_points['points']})
+    print(response)
+
+
 
 def preprocess_frame(frame, img_size=(224, 224)):
     # Resize image to the expected input size of the model
@@ -69,6 +84,8 @@ while cap.isOpened():
         if predicted_prob > 0.98:
             flash_green = True
             last_flash_time = current_time
+            if curr_user  != "":
+                add_points()
 
         last_prediction_time = current_time
     
@@ -81,7 +98,6 @@ while cap.isOpened():
     # check if there is a QRCode in the image 
     if data and bbox is not None: 
         curr_user = str(data)
-        print(curr_user)
     
     cv.imshow("Webcam Feed", frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
