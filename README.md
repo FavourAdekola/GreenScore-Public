@@ -17,18 +17,6 @@ This project is a recycling detection system with a leaderboard that encourages 
 - **QR Code Generation**: Python `qrcode` library
 - **Authentication**: Google OAuth (optional)
 
-## Getting Started
-
-### Prerequisites
-
-- **Python 3.7+**
-- **MongoDB Atlas Account**: [Sign up here](https://www.mongodb.com/cloud/atlas)
-- **Google OAuth Credentials**: If you plan to use Google login
-
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-Feel free to modify and expand upon this README as you develop more features for the recycling detection system!
