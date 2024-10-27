@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const updateUserPoints = async (googleId, points) => {
     try {
-        const response = await axios.post(`http://localhost:5000/api/user/${googleId}/points`, {
+        const response = await axios.post(`https://greenscore.onrender.com/api/user/${googleId}/points`, {
             points: points
         });
         return response.data;
@@ -16,7 +16,7 @@ export const updateUserPoints = async (googleId, points) => {
 export const addPoints = async (googleId, pointsToAdd) => {
     try {
         // First get current points
-        const currentResponse = await axios.get(`http://localhost:5000/api/user/${googleId}/points`);
+        const currentResponse = await axios.get(`https://greenscore.onrender.com/api/user/${googleId}/points`);
         const currentPoints = currentResponse.data.points;
         
         // Then update with new total

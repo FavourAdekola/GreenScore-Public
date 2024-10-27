@@ -13,7 +13,7 @@ function App() {
       <GoogleOAuthProvider clientId="767027653029-vu6grvaeh28h8ueuc7emqdhm7tbliud5.apps.googleusercontent.com">
         <div className="App">
 
-            <h1>Recycling Detection System</h1>
+            <h1>GreenScore</h1>
             {!user ? (
                 <GoogleSignIn setUser={setUser} />
             ) : (
