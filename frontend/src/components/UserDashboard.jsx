@@ -52,7 +52,7 @@ const UserDashboard = ({ user }) => {
             <p>Your Green Score: {points}</p>
             <QRCodePopup QRId={user.google_id}/>
             {/* Example buttons for testing */}
-            <button 
+            {/* <button 
                 onClick={() => handleRecycleItem()}
                 className="bg-green-500 text-white px-4 py-2 rounded mr-2"
             >
@@ -64,7 +64,7 @@ const UserDashboard = ({ user }) => {
                 className="bg-red-500 text-white px-4 py-2 rounded"
             >
                 Reset Green Score
-            </button>
+            </button> */}
         </div>
     );
 };

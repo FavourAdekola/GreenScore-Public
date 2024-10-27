@@ -10,7 +10,7 @@ function App() {
     const [user, setUser] = useState(null);
 
     return (
-      <GoogleOAuthProvider clientId="767027653029-vu6grvaeh28h8ueuc7emqdhm7tbliud5.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={"767027653029-vu6grvaeh28h8ueuc7emqdhm7tbliud5.apps.googleusercontent.com"}>
         <div className="App">
 
             <h1>GreenScore</h1>
