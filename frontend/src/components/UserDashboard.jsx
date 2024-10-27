@@ -50,7 +50,7 @@ const UserDashboard = ({ user }) => {
         <div>
             <h2>Welcome, {user.name}!</h2>
             <p>Your Points: {points}</p>
-            <QRCodePopup QRId={user._id}/>
+            <QRCodePopup QRId={user.google_id}/>
             {/* Example buttons for testing */}
             <button 
                 onClick={() => handleRecycleItem()}
