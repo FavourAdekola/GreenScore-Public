@@ -12,8 +12,17 @@ from pymongo.server_api import ServerApi
 load_dotenv() 
 
 app = Flask(__name__)
-CORS(app)
-
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://your-app.pages.dev",  # Your Cloudflare Pages domain
+            "http://localhost:3000"        # Local development
+        ],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    }
+})
 uri = os.getenv("MONGODB_URI")
 
 # Initialize MongoDB
@@ -22,6 +31,17 @@ db = client['data']
 users_collection = db['users']
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")  # Replace with your Google Client ID
+
+
+# Update your existing routes to include proper headers
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', request.headers.get('Origin', '*'))
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    return response
+
 
 @app.route('/auth/google', methods=['POST'])
 def google_auth():
