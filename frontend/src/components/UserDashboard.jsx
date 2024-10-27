@@ -49,21 +49,21 @@ const UserDashboard = ({ user }) => {
     return (
         <div>
             <h2>Welcome, {user.name}!</h2>
-            <p>Your Points: {points}</p>
+            <p>Your Green Score: {points}</p>
             <QRCodePopup QRId={user.google_id}/>
             {/* Example buttons for testing */}
             <button 
                 onClick={() => handleRecycleItem()}
                 className="bg-green-500 text-white px-4 py-2 rounded mr-2"
             >
-                Simulate Recycling (+1 point)
+                Simulate Recycling (+1 Green Score)
             </button>
             
             <button 
                 onClick={() => handleResetPoints()}
                 className="bg-red-500 text-white px-4 py-2 rounded"
             >
-                Reset Points
+                Reset Green Score
             </button>
         </div>
     );
