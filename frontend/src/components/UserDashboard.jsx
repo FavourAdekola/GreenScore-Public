@@ -13,7 +13,7 @@ const UserDashboard = ({ user }) => {
     useEffect(() => {
         const fetchPoints = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/user/${user.google_id}/points`);
+                const response = await axios.get(`https://greenscore.onrender.com/api/user/${user.google_id}/points`);
                 setPoints(response.data.points);
             } catch (error) {
                 console.error("Error fetching points:", error);

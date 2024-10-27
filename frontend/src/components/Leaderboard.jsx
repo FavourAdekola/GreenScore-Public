@@ -43,7 +43,7 @@ const Leaderboard = () => {
 
   const fetchLeaderboard = useCallback(async () => {
     try {
-      const { data: newData } = await axios.get('http://localhost:5000/api/leaderboard');
+      const { data: newData } = await axios.get('https://greenscore.onrender.com/api/leaderboard');
       
       setLeaderboardData(prevData => {
         // Only update if data has actually changed
