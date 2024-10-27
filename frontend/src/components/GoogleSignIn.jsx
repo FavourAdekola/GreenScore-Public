@@ -4,9 +4,7 @@ import { useGoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import config from "../config";
 
 const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
-  const GOOGLE_CLIENT_ID = context.env.GOOGLE_CLIENT_ID;  // Replace with your actual Google Client ID
-    console.log(GOOGLE_CLIENT_ID)
-    console.log(context.env.GOOGLE_CLIENT_ID)
+  const GOOGLE_CLIENT_ID = "767027653029-vu6grvaeh28h8ueuc7emqdhm7tbliud5.apps.googleusercontent.com";  // Replace with your actual Google Client ID
 
   const login = useGoogleLogin({
     onSuccess: async (response) => {
@@ -48,7 +46,7 @@ const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
   });
 
   return (
-    <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <div className="flex justify-center items-center p-4">
         <button
           onClick={() => login()}
