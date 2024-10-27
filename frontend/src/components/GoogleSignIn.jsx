@@ -4,9 +4,9 @@ import { useGoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import config from "../config";
 
 const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
-  const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;  // Replace with your actual Google Client ID
+  const GOOGLE_CLIENT_ID = context.env.GOOGLE_CLIENT_ID;  // Replace with your actual Google Client ID
     console.log(GOOGLE_CLIENT_ID)
-    console.log(process.env.GOOGLE_CLIENT_ID)
+    console.log(context.env.GOOGLE_CLIENT_ID)
 
   const login = useGoogleLogin({
     onSuccess: async (response) => {
