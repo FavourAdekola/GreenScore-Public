@@ -81,7 +81,7 @@ while cap.isOpened():
         print(f"Predicted Class: {predicted_class}, Probability: {predicted_prob}")
         #{'cardboard': 0, 'glass': 1, 'metal': 2, 'paper': 3, 'plastic': 4, 'trash': 5}
 
-        if predicted_prob > 0.98:
+        if predicted_prob > 0.98 and predicted_class != 5:
             flash_green = True
             last_flash_time = current_time
             if curr_user  != "":
