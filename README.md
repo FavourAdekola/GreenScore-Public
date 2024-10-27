@@ -1,4 +1,4 @@
-[![Watch the Video](https://img.youtube.com/vi/3ZCa5jKGV6cs/0.jpg)](https://www.youtube.com/watch?v=3ZCa5jKGV6c)
+[![](https://img.youtube.com/vi/3ZCa5jKGV6cs/0.jpg)](https://www.youtube.com/watch?v=3ZCa5jKGV6c)
 # GreenScore
 
 ## Inspiration
