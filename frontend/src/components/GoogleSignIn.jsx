@@ -1,6 +1,7 @@
 // Frontend: GoogleSignIn.jsx
 import React from 'react';
 import { useGoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import config from "../config";
 
 const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
   const GOOGLE_CLIENT_ID = "767027653029-vu6grvaeh28h8ueuc7emqdhm7tbliud5.apps.googleusercontent.com";  // Replace with your actual Google Client ID
@@ -16,7 +17,7 @@ const GoogleSignIn = ({ setUser }) => {  // Add setUser prop
         const userInfo = await userInfoResponse.json();
         
         // Send user info to your backend
-        const backendResponse = await fetch('https://greenscore.onrender.com/auth/google', {
+        const backendResponse = await fetch(`${config.apiUrl}/auth/google`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
