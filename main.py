@@ -8,8 +8,11 @@ import webbrowser
 model = tf.keras.models.load_model('trained_model/trained_model.keras')
 
 IMG_SIZE = (224, 224)
-
 PREDICTION_INTERVAL = 5
+FLASH_DURATION = 1
+
+last_flash_time = 0
+curr_user = ""
 
 def preprocess_frame(frame, img_size=(224, 224)):
     # Resize image to the expected input size of the model
@@ -46,6 +49,7 @@ detector = cv.QRCodeDetector()
 
 last_prediction_time = time.time()
 
+
 print("Press 'q' to exit")
 
 while cap.isOpened():
@@ -55,17 +59,29 @@ while cap.isOpened():
         break
 
     current_time = time.time()
+    flash_green = False
+
     if current_time - last_prediction_time > PREDICTION_INTERVAL:
         predicted_class, predicted_prob = predict_frame(frame)
         print(f"Predicted Class: {predicted_class}, Probability: {predicted_prob}")
         #{'cardboard': 0, 'glass': 1, 'metal': 2, 'paper': 3, 'plastic': 4, 'trash': 5}
+
+        if predicted_prob > 0.98:
+            flash_green = True
+            last_flash_time = current_time
+
         last_prediction_time = current_time
+    
+    if flash_green and current_time - last_flash_time < FLASH_DURATION:
+        overlay = frame.copy()
+        overlay[:] = (0,255,0)
+        cv.addWeighted(overlay,0.5,frame,0.5,0,frame)
     
     data, bbox, _ = detector.detectAndDecode(frame) 
     # check if there is a QRCode in the image 
     if data and bbox is not None: 
-        a=data 
-        b=webbrowser.open(str(a))
+        curr_user = str(data)
+        print(curr_user)
     
     cv.imshow("Webcam Feed", frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
